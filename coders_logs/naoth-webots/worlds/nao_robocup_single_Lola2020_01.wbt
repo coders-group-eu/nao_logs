@@ -1,0 +1,141 @@
+#VRML_SIM R2020a utf8
+
+EXTERNPROTO "../protos/Nao.proto"
+EXTERNPROTO "../protos/RobocupSoccerBall.proto"
+EXTERNPROTO "../protos/RobotstadiumGoal.proto"
+
+WorldInfo {
+  info [
+    "Simulation of the Robocup Standard Platform League"
+  ]
+  title "Robocup"
+  basicTimeStep 10
+  FPS 30
+  contactProperties [
+    ContactProperties {
+      material1 "NAO foot material"
+      bounce 0.3
+      bounceVelocity 0
+      softERP 0.6
+    }
+  ]
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.31294277028144063 0.9421529447780884 0.12006103104069132 5.39533607634126
+  position -1.3287742428961757 1.1493586056017704 1.9070056360660073
+  followType "Mounted Shot"
+}
+Background {
+  skyColor [
+    0.2235294117647059 0.26666666666666666 0.20784313725490197
+  ]
+}
+DirectionalLight {
+  color 0.95 1 0.9
+  direction 1.2 -1 1.2
+  intensity 1.3
+  castShadows TRUE
+}
+DirectionalLight {
+  color 0.95 1 0.9
+  direction -1.2 -2 1.2
+  intensity 1.3
+  castShadows TRUE
+}
+DirectionalLight {
+  color 0.95 1 0.9
+  direction -1.2 -1 -1.2
+  intensity 1.3
+  castShadows TRUE
+}
+DirectionalLight {
+  color 0.95 1 0.9
+  direction 1.2 -2 -1.2
+  intensity 1.3
+  castShadows TRUE
+}
+DirectionalLight {
+  color 0.95 1 0.9
+  direction 0 -2 0
+  intensity 1.5
+  castShadows TRUE
+}
+DEF BALL RobocupSoccerBall {
+  translation 0.40000000000000013 0.053996762672591764 -8.93825304206427e-06
+  rotation -0.9999999999999999 0 0 0.00017868043331737085
+}
+DEF NAO_ROBOT Nao {
+  translation 0.0001674411464589803 0.33587347252971367 2.0194167720560286e-07
+  rotation 0.9999999364710793 -0.000252049515919285 0.000252049357898008 -1.5707994343545792
+  controller "NaoServer"
+  supervisor TRUE
+  color 0.3 0.3 0.3
+  headSlot [
+    DEF CAM_TOP Solid {
+      translation 0.05871 0 0.06364
+      rotation 0.573277 -0.573277 -0.585411 2.08235
+      name "cam_top"
+    }
+    DEF CAM_BOTTOM Solid {
+      translation 0.05071 0 0.01774
+      rotation 0.391132 -0.391132 -0.833085 1.75241
+      name "cam_bottom"
+    }
+  ]
+}
+DEF Field Solid {
+  translation 0 -0.001 0
+  rotation 1 0 0 3.14159
+  children [
+    DEF SOCCER_FIELD Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../protos/textures/FieldCarpetTexture.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          rotation 0.001
+        }
+      }
+      geometry Box {
+        size 10.4 0.01 7.4
+      }
+    }
+  ]
+  boundingObject USE SOCCER_FIELD
+}
+DEF FieldLines Solid {
+  rotation 1 0 0 3.14159
+  children [
+    DEF SOCCER_FIELD Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../protos/textures/Field2020_transparent4096.png"
+          ]
+        }
+        transparency 0.5
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 10.4 0.01 7.4
+      }
+      castShadows FALSE
+    }
+  ]
+  name "field_lines"
+}
+RobotstadiumGoal {
+  translation 4.5 0 0
+  name "opponent_goal"
+}
+RobotstadiumGoal {
+  translation -4.5 0 0
+  rotation 0 1 0 3.1415
+  name "own_goal"
+}

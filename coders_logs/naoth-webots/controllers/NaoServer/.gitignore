@@ -1,0 +1,7 @@
+# ignore custom configuration
+runtime.ini
+
+# ignore pycharm project files and virtual env
+venv/*
+.idea/*
+__pycache__/*

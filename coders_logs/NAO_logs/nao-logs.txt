@@ -1,0 +1,110 @@
+#once done with the setups:
+
+1. open windows powershell
+#open new windows (on the right):
+alt + shift + '+'
+
+#open new windows (bottom): 
+alt + shift + '-'
+
+#close windows:
+ctrl + shift + 'W'
+
+2. in one of the opened windows open ubuntu
+#type
+wsl
+
+3. connect to the network
+#make sure you can ping the bot:
+ping IP address 192.168.0.03
+
+#get into the nao
+ssh nao@IP 
+
+#nao runs with Ubuntu 20.04.6 LTS (GNU/Linux 4.4.86-rt99-aldebaran x86_64)
+
+#to navigate paths:
+use ls / cd 
+
+#go back
+
+cd ../.. 
+
+#put it to sleep 
+
+sudo shutdown now
+
+#to kill processes, in case of adaptor error
+
+naoth stop
+
+lola_adaptor stop
+
+# Loading a file to the NAO:
+# scp = Secure CoPy; copy inside the pytest folder
+scp nao@192.168.0.30:outputting_directory_of_file (receive from to NAO)
+scp myfile.py nao@192.168.0.30:receiving_directory (send to NAO)
+
+#run the files on NAO
+python3 pytest/myfile.py 
+
+#create ISO with disk from ubuntu
+
+"""An ISO file is an exact copy of an entire optical disk such as a CD, DVD, 
+or Blu-ray (USB) archived into a single file. This file, which is also sometimes referred to as an ISO image, 
+is a smaller sized duplicate of large sets of data."""
+
+take iso and creat e bootable usb stick directly 
+
+go to disk 
+select usb stick 
+
+upen options (...)
+
+create disk img 
+
+#A graphical user interface (GUI) 
+is a digital interface in which a user interacts with graphical components such as icons, buttons, and menus. 
+#IDE
+An integrated development environment is a software application that provides comprehensive facilities for software development. 
+An IDE normally consists of at least a source-code editor, build automation tools, and a debugger.
+#read only memory to givethe robots their numbers
+
+#installing wsl 2 (ubuntu venv on windows)
+ref: https://learn.microsoft.com/en-us/windows/wsl/install
+
+powershell command: 
+
+wsl --install 
+sudo <- ("superuser do") administrative commands.
+
+for ubuntu: 
+
+frequently do:
+
+update packages: 
+sudo apt update && sudo apt upgrade
+
+update command updates the list of available packages and their versions, but doesn't install or upgrade any packages.
+The upgrade command installs newer versions of the packages you've installed.
+
+#install wsl extension on vs code
+1. go to extensions 
+2. type 'wsl'
+3. install
+
+# murat logs
+
+pip3 install opencv-python-headless
+
+1- Check naoth gitlab for linux-iso 
+2- whatever in the brainwash.sh will run automatically 
+on the robot. You can modify this file for cp'ing the files
+to the homedirectory. 
+2- To change other robot's IP adress change the N in the network (brainwash) file. 
+3- use pip3 to install opencv-python-headless
+5- check the endings of the strings, windows vs. mac vs. linux.
+6- run the followings
+	naoth stop
+	lola_adaptor stop
+	then run the move_head.py
