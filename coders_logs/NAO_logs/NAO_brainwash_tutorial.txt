@@ -1,0 +1,42 @@
+What's up guys today I will show you how to deal with a naughty NAO that is acting up (even more than usual). Let's get started!!
+
+If all else fails, you basically need to reinstall the NAO's operating system fully (see below how). Before that, you can try this:
+
+if nao gets unresponsive: 
+- connect robot to router with ethernet cable
+- ping it
+- open Robot Settings
+- change network settings of the robot to connect it to network with internet access (not eduroam)
+
+!!! this took it back to a 'normal' function mode
+
+- connect to network with internet access (not eduroam)
+- press front button to get ip 
+- ping it 
+- connect to the robot with choreographe
+- advanced connection -> update robot system -> upload .opn file
+- reboot as indicated
+
+
+IF NOTHING SEEMS TO WORK:
+
+## 1 Find the .opn file online, and download it
+https://www.robotlab.com/support/factory-reset-nao-robot-flasher
+
+
+## 2 get the NAO flasher: 
+https://aldebaran.com/en/support/kb/nao6/downloads/nao6-software-downloads/
+
+
+## 3 Follow the steps on this site to flash the NAO:
+
+http://doc.aldebaran.com/2-8/software/naoflasher/naoflasher.html
+
+NOTE:
+Run the flasher app as admin, and when prompted you should probably select factory reset if you want to be sure the flashing will fix the Nao. I guess if you don't want to lose settings, you can try without the factory reset, I haven't tried but maybe that's enough to fix the issue as well.
+
+Also on the same site it tells you how to clean a formatted USB stick, which you need to do before using it for the flashing:
+
+http://doc.aldebaran.com/2-8/software/naoflasher/naoflasher.html#reuse-usb
+
+Thanks for watching, if you enjoyed this tutorial make sure to follow @garfield.sexy on instagram
